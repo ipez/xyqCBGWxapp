@@ -3,7 +3,6 @@ const utils = require('../../utils/util.js')
 const getPric = require('../../utils/getPric.js')
 const schoolName = require("../../data/staticData.js").schoolName
 const serverData = require("../../data/staticData.js").serverData
-let globalData = getApp().globalData
 
 Page({
   data: {
@@ -17,7 +16,7 @@ Page({
       serverName:null,
       page: 1,
     },
-    coef:globalData.coef
+    coef:''
   },
 
   onLoad() {
@@ -34,16 +33,17 @@ Page({
       }) 
     }
     this.setData({
+      coef: wx.getStorageSync('coef'),
       'urlData.areaId': wx.getStorageSync('areaId'),
       'urlData.areaName': wx.getStorageSync('areaName'),
       'urlData.serverId':wx.getStorageSync('serverId'),
-      'urlData.serverName': wx.getStorageSync('serverName')
+      'urlData.serverName': wx.getStorageSync('serverName'),     
     })
     wx.setNavigationBarTitle({
       title: this.data.urlData.areaName + '-' + this.data.urlData.serverName
     })
-    console.log(wx.getStorageSync("areaName"))
-    console.log(wx.getStorageSync("serverName"))
+    console.log(wx.getStorageSync("areaName"), wx.getStorageSync("serverName"))
+    console.log(this.data.coef)
     console.log('onLoad')
   },
   onShow() {

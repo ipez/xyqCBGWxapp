@@ -1,12 +1,12 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="usermotto">
-    <text class="user-motto">欢迎使用</text>
-    
-  </view>  
+<view class="img-logo">
+<image src="/img/logo.png" style="height:300rpx;width:300rpx;"mode="aspectFit"></image>
+</view>
   
-  <text class="user-motto">梦幻西游藏宝阁助手</text>
-    <text class="user-motto">非官方，仅供学习交流使用</text>
+  <text class="user-motto">欢迎使用</text>
+  <text class="user-motto" style='font-size:50rpx;'>梦幻藏宝阁角色估价助手</text>
+  <text class="user-motto">非官方，仅供学习交流使用</text>
   <view>
   
   </view>

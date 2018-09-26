@@ -8,11 +8,9 @@ const qiangZhuangGold = require("../data/calcData.js").qiangZhuangGold
 
 // 角色技能修炼消耗计算
 let calcPric=(roleObj, coefObj)=>{
-  
-  var gold2money = coefObj.gold2money
-  var money2rmb = coefObj.money2rmb
-  var xlgmoney = coefObj.xlgmoney
-  console.log(xlgmoney)
+  var gold2money = parseFloat(coefObj.gold2money)
+  var money2rmb = parseFloat(coefObj.money2rmb)
+  var xlgmoney = parseFloat(coefObj.xlgmoney)
   //角色修炼  【gold储备金 money现金 rmb人民币】
   var exptGold = [30000, 20000, 30000, 20000, 30000]; // 攻 防 法 抗法 猎
   var exptSki = [roleObj.iExptSki1, roleObj.iExptSki2, roleObj.iExptSki3, roleObj.iExptSki4, roleObj.iExptSki5];
@@ -50,11 +48,9 @@ let calcPric=(roleObj, coefObj)=>{
       if (sn == 7) break;  //找到全部7个技能等级跳出循环
     }
   }
-
   var schoolSkiGoldSum = 0;
   for (i = 0; i < 7; i++) schoolSkiGoldSum += arrSum(schoolSkiGold,schoolSki[i]);
-
-
+  
   //生活技能 只考虑40级以上  201-218；230//普通，打造技巧，强身，灵石，强壮
   var lifeSki = [];
   //201: "强身术",202: "冥想",203: "暗器技巧",204: "打造技巧",205: "裁缝技巧",206: "中药医理",
@@ -89,7 +85,6 @@ let calcPric=(roleObj, coefObj)=>{
   //返回金钱总消耗
   var rmbPrice = ((exptSkiGoldSum + schoolSkiGoldSum + exptSkiMaxGoldSum + lifeSkiGoldSum) * gold2money + beastSkiMoney) * money2rmb / 3000e4 + lifeSkiBGSum / 50.0;
   return rmbPrice;
-
 }
 
 //数组前 n 项合

@@ -1,18 +1,16 @@
 {
   "pages": [
+    "pages/launch/launch",
     "pages/index/index",
-    
-    "pages/role/role",
-    
+    "pages/role/role", 
     "pages/search/search",
     "pages/logs/logs",
-    "pages/launch/launch",
     "pages/roledetail/roledetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "梦幻西游藏宝阁助手",
+    "navigationBarTitleText": "梦幻藏宝阁角色估价助手",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

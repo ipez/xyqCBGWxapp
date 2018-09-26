@@ -1,13 +1,12 @@
 // pages/index/index.js
 const serverData = require("../../data/staticData.js").serverData
-let windowHeight = getApp().globalData.systeminfo.windowHeight
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    scrollHeight: windowHeight,
+    scrollHeight:'',
     letter:[],
     areaListId:[],
     areaList:[],
@@ -24,9 +23,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-    this.toLetterList(serverData)
-    
+    let that = this
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({ scrollHeight: res.windowHeight })
+      },
+    })   
+    this.toLetterList(serverData)   
   },
 
   /**

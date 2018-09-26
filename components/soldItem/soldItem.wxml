@@ -10,7 +10,7 @@
       <view class="role-school">{{item.roleScho}}</view>
       <text class="role-level" space="ensp"> | {{item.roleLevel}}</text>
     </view>
-      <view class="role-area">￥{{item.calcPric}}</view>
+      <view class="calc-pric">￥{{item.calcPric}}</view>
     </view>
     <view class="txt-body">
       <view class="role-summary">{{item.roleSumm}}</view>

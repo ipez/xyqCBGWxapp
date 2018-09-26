@@ -2,15 +2,13 @@
 const pricList = require("../../data/staticData.js").pricList
 const levelList = require("../../data/staticData.js").levelList
 const schoolList = require("../../data/staticData.js").schoolList
-let windowHeight = getApp().globalData.systeminfo.windowHeight
-let globalData = getApp().globalData
 
 Page({
   /**
    * 页面的初始数据          
    */
   data: {
-    scrollHeight: windowHeight, 
+    scrollHeight:null, 
     isShowAccBody:{
       coef:true,
       pric:true,
@@ -19,7 +17,7 @@ Page({
       roleExpt:true,
       petExpt:true,
     },
-    placeholderCoef:globalData.coef,
+    placeholderCoef:'',
     formData:{     //存储表单输入
       coef:{
         gold2money:null,
@@ -79,36 +77,14 @@ Page({
      
   },
 
-  onLoad(){
-
-    //--------
-    //let that = this
-    //console.log("testload",this.data.placeholderCoef)
-    // let tempphc=this.data.placeholderCoef
-    // wx.getStorage({
-    //   key: 'coef',
-    //   success: function (res) {
-    //     console.log(res)
-    //     that.setData({
-    //       'placeholderCoef.gold2money': res.data.gold2money||tempphc.gold2money,
-    //       'placeholderCoef.money2rmb': res.data.money2rmb || tempphc.money2rmb,
-    //       'placeholderCoef.xlgmoney': res.data.xlgmoney || tempphc.xlgmoney,
-    //     })  
-    //   },
-    //   fail: function () {  //首次使用
-    //     console.log('test')
-    //     wx.setStorage({
-    //       key: 'coef',
-    //       data: {
-    //         gold2money: that.data.placeholderCoef.gold2money,
-    //         money2rmb: that.data.placeholderCoef.money2rmb,
-    //         xlgmoney: that.data.placeholderCoef.xlgmoney
-    //       },
-    //     })
-    //   }
-    // })  
-    
-
+  onLoad() {
+    let that = this
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({scrollHeight:res.windowHeight})
+      },
+    })
+    this.setData({placeholderCoef:wx.getStorageSync('coef')})
   },
   onReady(){
     this.toast=this.selectComponent('#mytoast')
@@ -255,8 +231,6 @@ Page({
     return arr   
   },
 
-
-
   formSubmit(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     let pricMin = e.detail.value.pricMin
@@ -282,14 +256,7 @@ Page({
     else{
       let tempphc= this.data.placeholderCoef
       let tempfdc=this.data.formData.coef
-      //let templist=this.data.optionList.coef
-      // for(let i in templist){
-      //   if (tempcoef[templist[i].pinyin] == null && tempphc[templist[i].pinyin]==null){
-      //     this.setData({ toastText: templist[i].name+'不能为空' })
-      //     this.toast.showToast()
-      //     return
-      //   }
-      // }
+      console.log(tempfdc)
       wx.setStorageSync('coef', {
         gold2money: tempfdc.gold2money || tempphc.gold2money,
         money2rmb: tempfdc.money2rmb || tempphc.money2rmb,
@@ -322,8 +289,8 @@ Page({
       else{
         tempdata[key]=null
       }
-      if(key=='coef'){
-        tempdata.coef=this.data.placeholderCoef} 
+      // if(key=='coef'){
+      //   tempdata.coef=this.data.placeholderCoef} 
     }
     console.log(tempdata.coef)
     this.setData({

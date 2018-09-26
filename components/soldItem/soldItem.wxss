@@ -52,6 +52,9 @@
   font-size: 40rpx;
   color: red;
 }
+.calc-pric{
+  color: black;
+}
 .txt-footer{
   display: flex;
   flex-direction: row-reverse;
