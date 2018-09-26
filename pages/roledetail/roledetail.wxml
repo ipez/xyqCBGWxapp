@@ -1,0 +1,3 @@
+<!--pages/roledetail/roledetail.wxml-->
+
+<web-view src="{{url}}"></web-view>

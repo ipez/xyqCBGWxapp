@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "未选中任何区服",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "soldItem": "/components/soldItem/soldItem"
+  }
+}

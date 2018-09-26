@@ -1,0 +1,6 @@
+<!--components/udToast/udToast.wxml-->
+<view class="toast-mask" hidden="{{isToastHidden}}">
+<view class="toast-box" >
+<view class="toast-text">{{toastText}}</view>
+  </view>
+</view>

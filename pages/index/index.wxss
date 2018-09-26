@@ -1,0 +1,67 @@
+/* pages/index/index.wxss */
+page{
+  height:100%;
+}
+.prompt{
+  position: fixed;
+  width: 100%;
+  height: 35px;
+  padding: 0 5rpx;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 1;
+}
+.area-box{
+  height:100%;
+  display: flex;
+  align-items: center;
+}
+.areabox-left{
+  flex: 1;
+}
+.areabox-right{
+  width: 60rpx;
+  height: 68%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.letter-item{
+  flex: 1;
+  display: block;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+
+.area-firstletter{
+  line-height: 40rpx;
+  height: 40rpx;
+  padding-left: 25rpx;
+  font-size: 28rpx;
+  background: #eee;
+  color: #999;
+}
+
+.area-name{
+  display: block;
+  line-height: 80rpx;
+  height: 80rpx;
+  border-bottom: 1px solid #efefef;
+  font-size: 35rpx;
+  color: #333;
+  padding-left: 25rpx;
+}
+
+.radio-group{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;  
+}
+.radio-label{ 
+  width: 46%;
+  font-size: 40rpx;
+  margin: 1%;
+}

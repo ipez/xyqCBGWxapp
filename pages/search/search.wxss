@@ -1,0 +1,162 @@
+/* pages/search/search.wxss */
+
+.accordion-box{  
+  margin: 10px;
+  border: 1px solid #555;
+  border-radius: 5px;
+}
+.accordion-head{
+  background-color: #ddd;
+  margin: 5px;
+  font-size:40rpx;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.acc-head-right{
+  text-align: right;
+  color:red;
+  width: 50%;
+  font-size: 30rpx;
+  margin:5px 70rpx;
+  overflow:hidden; 
+  text-overflow:ellipsis; 
+  white-space:nowrap; 
+}
+.iconfont{
+  font-size:15rpx;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.down-arrow::after{
+  font-family:"iconfont" !important;
+  content: '\e63c';
+  font-size: 40rpx;
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  transform: translateY(-50%);
+  text-decoration: none;
+  right: 10rpx;
+}
+.up-arrow::after{
+  font-family:"iconfont" !important;
+  content: '\e63a';
+  font-size: 40rpx;
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  transform: translateY(-50%);
+  text-decoration: none;
+  right: 10rpx;
+}
+
+
+.accordion-body{
+  margin: 5px;
+ 
+}
+.acc-body-hidden{
+  display: none;
+}
+
+
+.input2box{
+  background: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.input-box{
+  background-color: white;
+  width: 40%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin:2px;
+  font-size: 30rpx;
+}
+
+.radio-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.radio-label{
+  background-color: #eee;
+  width: 30%;
+  margin: 5rpx;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 35rpx;
+}
+.chosen{
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.expt-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.expt-inbox{
+  width:45%;
+  margin:5rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.expt-text{
+  font-size: 35rpx; 
+}
+.gtandet::after{
+  font-family:"iconfont" !important;
+  content: '\e6eb';
+  font-size: 25rpx;
+  margin:1px;
+}
+.expt-input{
+  width: 30%;
+}
+
+
+.btn-area{
+  height:45px;
+  display: flex;
+  flex-direction: row;
+}
+
+.btn-reset{
+  width:35%;
+  margin: 2px;
+}
+.btn-submit{
+  width:60%;
+  margin:2px;
+  background-color: #E76464;
+  color:white;
+}
+
+
+.coef-box-left{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  width: 70%
+}
+
+.coef-text{
+  font-size: 35rpx;
+  text-align: right;
+  margin:2px;
+}
+
+.coef-input{
+  width: 60%;
+}

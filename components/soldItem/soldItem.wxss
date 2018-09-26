@@ -1,0 +1,61 @@
+/* components/soldItem/soldItem.wxss */
+
+.item-card{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 10rpx;
+  border-top: 2rpx outset #ccc;
+}
+
+.card-img{
+  padding: 10rpx;
+  }
+
+.card-txt{
+  display: flex;
+  flex-direction: column;
+  width:600rpx;
+  margin-right: 10rpx;
+  margin-top: 5rpx;
+}
+
+.txt-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 40rpx;
+  font-size: 30rpx;
+  color: #ccc;
+}
+.role-s-l{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.role-school{
+  font-size: 35rpx;
+  color: black;
+}
+
+.txt-body{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  eight: 40rpx;
+  font-size: 30rpx;
+  color: #ccc;
+}
+.role-price{
+  font-size: 40rpx;
+  color: red;
+}
+.txt-footer{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center; 
+  font-size: 30rpx;
+  color: #ccc;  
+}

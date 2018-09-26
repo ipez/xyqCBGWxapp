@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="usermotto">
+    <text class="user-motto">欢迎使用</text>
+    
+  </view>  
+  
+  <text class="user-motto">梦幻西游藏宝阁助手</text>
+    <text class="user-motto">非官方，仅供学习交流使用</text>
+  <view>
+  
+  </view>
+  
+  </view>
+  
+

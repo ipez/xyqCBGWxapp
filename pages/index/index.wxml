@@ -1,0 +1,32 @@
+<!--pages/index/index.wxml-->
+<view class="area-box">
+  <view class="areabox-left">
+    <text class="prompt" space="ensp"> 请选择区服： </text>
+    <scroll-view scroll-y scroll-with-animation scroll-into-view="{{areaListId}}" style="height:{{scrollHeight-35}}px;padding-top:35px;">
+      <view class="arealist-box">
+        <block wx:for="{{areaList}}" wx:key="{{index}}" wx:for-item="areaItem" wx:for-index="areaIndex">
+          <view class="area-firstletter" id="{{areaItem.letter}}">{{areaItem.letter}}</view>
+          <text class="area-name" wx:for="{{areaItem.area}}" wx:key="*this" catchtap="areaTap" data-item="{{item}}">{{item[0][0]}}</text>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="areabox-right">
+    <text class="letter-item" wx:for="{{letter}}" wx:key="*this" catchtap="letterTap" data-item="{{item}}">{{item}}</text>
+  </view>
+</view>
+
+<modal hidden="{{hiddenModal}}" title="{{modalArea}}" bindcancel="modalCancel" bindconfirm="modalConfirm">
+  <radio-group bindchange="radioChange">
+    <view class="radio-group">
+        <view wx:for="{{modalServerList}}" wx:key="*this" class="radio-label">
+        <label><radio value="{{item}}" />{{item[1]}}</label>
+        </view>
+    </view>
+  </radio-group>
+</modal>
+
+
+
+<!--
+

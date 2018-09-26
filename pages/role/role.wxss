@@ -1,0 +1,17 @@
+
+.flex-wrp{
+  margin-top: 5rpx;
+  display:flex;
+  padding: 10rpx
+}
+
+.flex-item{
+  width: 150rpx;
+  height: 30rpx;
+  font-size: 30rpx; 
+  justify-content: center; 
+}
+
+.sold-list {
+  border: 0px solid darkgray;
+}

@@ -1,0 +1,19 @@
+<!--role.wxml-->
+<view class="container">
+	<view class="list-filter">
+		<view class="flex-wrp" style="flex-direction:row;">
+		  <view class="flex-item">综合排序</view>
+			<view class="flex-item ">最新</view>
+			<view class="flex-item ">收藏</view>
+			<view class="flex-item ">价格</view>
+			<view class="flex-item ">    
+	    筛选
+      <image style="width: 30rpx; height: 30rpx;" src="/img/icon_filter.png"></image>
+	    </view>
+		</view>
+	</view>
+  <view class="timeline" wx:if="{{urlData.serverId}}">
+    <soldItem list="{{timeline}}"></soldItem>
+  </view>
+</view>
+

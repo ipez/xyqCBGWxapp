@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    
+    "pages/role/role",
+    
+    "pages/search/search",
+    "pages/logs/logs",
+    "pages/launch/launch",
+    "pages/roledetail/roledetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "梦幻西游藏宝阁助手",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#abb4bf",
+    "selectedColor": "#ff0000",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "选区",
+        "iconPath": "img/ic_main_home_normal.png",
+        "selectedIconPath": "img/ic_main_home_highlight.png"
+      },
+      {
+        "pagePath": "pages/role/role",
+        "text": "角色",
+        "iconPath": "img/ic_main_me_normal.png",
+        "selectedIconPath": "img/ic_main_me_highlight.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "筛选",
+        "iconPath": "img/ic_main_category_normal.png",
+        "selectedIconPath": "img/ic_main_category_highlight.png"
+      }
+    ]
+  }
+}

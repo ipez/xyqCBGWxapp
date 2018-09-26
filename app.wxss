@@ -1,0 +1,21 @@
+/**app.wxss**/
+@import "./src/css/icon.wxss";
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:60rpx;
+}
+
+/*下箭头，上箭头，大于等于，小于等于 */
+.icon-downarrow:before{content: '\e63c';}
+.icon-uparrow:before{content: '\e63a';}
+.icon-gtandet:before{content: '\e6eb';}
+.icon-ltandet:before{content: '\e6ec';}
+
+.container {
+  display: flex;
+  width:750rpx;
+  flex-direction: column;
+  align-items: center;
+} 
+

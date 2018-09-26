@@ -1,0 +1,26 @@
+<!--components/soldItem/soldItem.wxml-->
+
+<view class="item-card" wx:for="{{list}}" wx:key="{{index}}" data-item='{{item}}' catchtap='toRoleDetail'>
+  <view class="card-img">
+  <image style="height:120rpx;width:120rpx;" mode="aspectFill" src="{{item.roleIconUrl}}" binderror="errorImg" data-roleicon="{{item.roleIcon}}" data-index="{{index}}"></image>
+  </view>
+  <view class="card-txt">
+    <view class="txt-header">
+    <view class="role-s-l">
+      <view class="role-school">{{item.roleScho}}</view>
+      <text class="role-level" space="ensp"> | {{item.roleLevel}}</text>
+    </view>
+      <view class="role-area">￥{{item.calcPric}}</view>
+    </view>
+    <view class="txt-body">
+      <view class="role-summary">{{item.roleSumm}}</view>
+      <view class="role-price">￥{{item.rolePric}}</view>
+    </view>
+    <view class="txt-footer">
+      <view class="role-more">
+        <image style="width:50rpx;height:40rpx;" mode="aspectFit" src="/img/icon_more.png"></image>
+      </view>
+      <view class="role-timeleft">{{item.roleTime}}</view>        
+    </view>
+  </view>
+</view>

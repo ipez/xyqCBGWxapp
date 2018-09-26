@@ -1,0 +1,147 @@
+<!--pages/search/search.wxml-->
+<view class="page-search">
+  <form catchsubmit="formSubmit" catchreset="formReset">
+  <scroll-view scroll-y style="height:{{scrollHeight-45}}px;">
+
+<!--price calculation-->
+    <view class="accordion-box">
+      <view class="accordion-head {{isShowAccBody.coef? 'up-arrow' : 'down-arrow'}}" bindtap="showAccBody" data-name="coef">
+        <text>价格计算参数</text>
+        <!--view class="acc-head-right" wx:if="{{formCoef}}">{{formCoef}}</view-->
+      </view>
+      <view class="accordion-body {{isShowAccBody.coef? '':'acc-body-hidden'}}">
+        <view class="input2box">
+        <view class="coef-box-left">
+          <view class="coef-text" wx:for="{{optionList.coef}}" wx:key="{{index}}">{{item.name}}:</view>
+        </view>
+        <view class="coef-box-right">
+          <view class="input-box coef-input" wx:for="{{formData.coef}}" wx:key="{{index}}">
+            <input name="{{index}}" type="digit" placeholder='{{placeholderCoef[index]}}' value="{{item}}" bindinput="bindInputCoef" data-name="{{index}}" style="text-align:center;"></input>
+          </view> 
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!--price radio-->
+    <view class="accordion-box">
+      <view class="accordion-head {{isShowAccBody.pric? 'up-arrow' : 'down-arrow'}}" bindtap="showAccBody" data-name="pric">
+        <text>价格(元)</text>
+        <view class="acc-head-right" wx:if="{{formData.pric.min||formData.pric.max}}">{{formData.pric.min==null?'':formData.pric.min}}-{{formData.pric.max==null?'':formData.pric.max}}</view>
+      </view>
+      <view class="accordion-body {{isShowAccBody.pric? '':'acc-body-hidden'}}">
+        <view class="input2box">
+          <view class="input-box">
+            <input name="pricMin" type="number" placeholder="最低" value="{{formData.pric.min}}" bindinput="bindInputPricMin" style="text-align:center;"></input>
+          </view>
+          <text>-</text>
+          <view class="input-box">
+            <input name="pricMax" type="number" placeholder="最高" value="{{formData.pric.max}}" bindinput="bindInputPricMax" style="text-align:center;"></input>
+          </view>
+        </view>
+        <radio-group class="radio-group" bindchange="radioChangePric">
+          <label wx:for="{{optionList.pric}}" wx:key="{{index}}" class="radio-label">
+            <radio value="{{item.id}}" checked="{{item.checked}}" hidden/>
+            <view class="{{item.checked?'chosen':''}}">{{item.option}}</view>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+
+    <!--level radio-->
+    <view class="accordion-box">
+      <view class="accordion-head {{isShowAccBody.level? 'up-arrow' : 'down-arrow'}}" bindtap="showAccBody" data-name="level">
+        <text>等级</text>
+        <view class="acc-head-right" wx:if="{{formData.level.min||formData.level.max}}">{{formData.level.min==null?'':formData.level.min}}-{{formData.level.max==null?'':formData.level.max}}</view>
+      </view>
+      <view class="accordion-body {{isShowAccBody.level? '':'acc-body-hidden'}}">
+        <view class="input2box">
+          <view class="input-box">
+            <input name="levelMin" type="number" placeholder="最低" value="{{formData.level.min}}" bindinput="bindInputLevelMin" style="text-align:center;"></input>
+          </view>
+          <text>-</text>
+          <view class="input-box">
+            <input name="levelMax" type="number" placeholder="最高" value="{{formData.level.max}}" bindinput="bindInputLevelMax" style="text-align:center;"></input>
+          </view>
+        </view>
+        <radio-group class="radio-group" bindchange="radioChangeLevel">
+          <label wx:for="{{optionList.level}}" wx:key="{{index}}" class="radio-label">
+            <radio value="{{item.id}}" checked="{{item.checked}}" hidden/>
+            <view class="{{item.checked?'chosen':''}}">{{item.id==0?69:item.option}}</view>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+
+    <!--school checkbox-->
+    <view class="accordion-box">
+      <view class="accordion-head {{isShowAccBody.scho? 'up-arrow' : 'down-arrow'}}" bindtap="showAccBody" data-name="scho">
+        <text>门派</text>
+        <view class="acc-head-right" wx:if="{{formText.scho.length>0}}">
+          {{formText.scho}}
+        </view>
+      </view>
+      <view class="accordion-body {{isShowAccBody.scho? '':'acc-body-hidden'}}">
+        <checkbox-group class="radio-group" bindchange="checkboxChangeScho">
+          <label wx:for="{{optionList.scho}}" wx:key="{{index}}" class="radio-label">
+            <checkbox value="{{item.id}}" checked="{{item.checked}}" hidden/>
+            <view class="{{item.checked?'chosen':''}}">{{item.option}}</view>
+          </label>
+        </checkbox-group>
+      </view>
+    </view>
+
+    <!--roleexpt checkbox-->
+   <view class="accordion-box">
+      <view class="accordion-head {{isShowAccBody.roleExpt? 'up-arrow' : 'down-arrow'}}" bindtap="showAccBody" data-name="roleExpt">
+        <text>角色修炼</text>
+        <view class="acc-head-right" wx:if="{{formText.roleExpt.length>0}}">
+          {{formText.roleExpt}}
+        </view>
+      </view>
+      <view class="accordion-body {{isShowAccBody.roleExpt? '':'acc-body-hidden'}}">
+        <view class="expt-box">
+          <view class="expt-inbox" wx:for="{{optionList.expt}}" wx:key="{{index}}">
+            <view class="expt-text gtandet">{{item.name}}</view>
+            <view class="input-box expt-input">
+              <input name="expt-{{item.pinyin}}" bindinput="bindInputRoleExpt" id="{{item.id}}" value="{{formData.roleExpt[item.pinyin]}}" style="text-align:center;"></input>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!--petexpt checkbox-->
+  <view class="accordion-box">
+      <view class="accordion-head {{isShowAccBody.petExpt? 'up-arrow' : 'down-arrow'}}" bindtap="showAccBody" data-name="petExpt">
+        <text>宠物修炼</text>
+        <view class="acc-head-right" wx:if="{{formText.petExpt.length>0}}">
+          {{formText.petExpt}}
+        </view>
+      </view>
+      <view class="accordion-body {{isShowAccBody.petExpt? '':'acc-body-hidden'}}">
+        <view class="expt-box">
+          <view class="expt-inbox" wx:for="{{optionList.expt}}" wx:key="{{index}}">
+              <view class="expt-text gtandet" wx:if="{{item.id<5}}">{{item.name}}</view>
+              <view class="input-box expt-input" wx:if="{{item.id<5}}">
+                <input name="bbexpt-{{item.pinyin}}" style="text-align:center;" bindinput="bindInputPetExpt" id="{{item.id}}" value="{{formData.petExpt[item.pinyin]}}"></input>
+              </view>
+            </view>
+        </view>
+      </view>
+    </view>
+
+
+
+  </scroll-view>
+   <view class="btn-area">
+    <button class="btn-reset" formType="reset">重置</button>
+      <button class="btn-submit" formType="submit">确定</button>
+      
+    </view>
+  </form>
+
+</view>
+
+
+<udToast id="mytoast" toastText="{{toastText}}" showTime="{{toastShowTime}}"> </udToast>
